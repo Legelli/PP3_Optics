@@ -1,0 +1,227 @@
+% !TEX TS-program = XeLaTeX
+%!TEX encoding = UTF-8 Unicode
+%==================================================
+%      PREAMBOLO e DICHIARAZIONI INIZIALI
+%==================================================
+\documentclass[10pt,oneside,a4paper]{article}
+
+\usepackage[utf8]{inputenc} 
+\usepackage[italian]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{siunitx} %Inserisce automaticamente i dati con le unità  di misura correttamente formattate del SI (utilizzo: \SI{0.82}{m^2}, in generale \SI{misura con il punto decimale}{unità  di misura})
+\sisetup{output-decimal-marker = {.}, separate-uncertainty = true, input-uncertainty-signs = \pm, detect-weight=true, detect-family=true} %per usare SI con il punto decimale
+\usepackage{listings} %Per citare codice informatico formattandolo correttamente
+\usepackage{amsmath,amsthm,verbatim,amssymb,amsfonts,amscd,graphicx,mathtools}
+\usepackage[makeroom]{cancel}
+\newcommand{\abs}[1]{\left\lvert\,#1\,\right\rvert}
+\usepackage{geometry}
+\usepackage{epigraph}
+\usepackage{booktabs}	%tabelle migliorate
+\usepackage{tablefootnote}	%note a piè di pagina in tabella
+\usepackage{threeparttable} %tabella con note a piè di tabella
+\usepackage{caption}	%descrizione per figure
+\usepackage{dblfnote}
+\captionsetup{tableposition=top,figureposition=bottom,font=small} %setup descrizione
+\usepackage{float}
+\usepackage{esvect} %vettori
+\usepackage{longtable} %tabelle lunghe
+\usepackage[dvipsnames]{xcolor}
+\definecolor{sepia}{HTML}{80002A}
+\usepackage[colorlinks=true, citecolor=black, linkcolor=sepia, urlcolor=black]{hyperref}
+\usepackage{mathrsfs}
+\usepackage{circuitikz}
+\tikzset{
+  font={\fontsize{7pt}{12}\selectfont}}
+\ctikzset{bipoles/resistor/height=0.2}
+\ctikzset{bipoles/resistor/width=0.4}
+\ctikzset{bipoles/diode/height=0.3}
+\ctikzset{bipoles/diode/width=0.3}
+\ctikzset{tripoles/american nand port/height=0.7}
+\ctikzset{tripoles/american nand port/width=0.8}
+\usepackage{enumitem} %Liste senza spazi verticali
+\setlist{noitemsep}
+\usepackage{amsmath}
+\usepackage{hyperref}
+%\usepackage{pst-optexp} %Diagrammi ottici
+\usepackage{physics} %Ambienti utili
+
+
+\interfootnotelinepenalty=10000
+
+
+\usepackage{multicol}
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
+%\newcommand{\var}{\operatorname{var}}
+%\newcommand{\cov}{\operatorname{cov}}
+
+
+\usepackage{listings} %Per inserire codice
+\lstdefinestyle{CStyle}{
+    backgroundcolor=\color{backgroundColour},   
+    commentstyle=\color{mGreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{mGray},
+    stringstyle=\color{mPurple},
+    basicstyle=\footnotesize\ttfamily,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    language=C
+}
+
+\definecolor{color1}{RGB}{90,0,0} % Color of the article title and sections
+\definecolor{color2}{RGB}{0,20,50} % Color of the boxes behind the abstract and headings
+\definecolor{mGreen}{rgb}{0,0.6,0}
+\definecolor{mGray}{rgb}{0.5,0.5,0.5}
+\definecolor{mPurple}{rgb}{0.58,0,0.82}
+\definecolor{backgroundColour}{rgb}{0.95,0.95,0.92}
+
+
+%==================================================
+%                  PRIMA PAGINA
+%==================================================
+
+\title{\textsc{\textbf{Esperienza 3}: Diffrazione di un fascio laser}}
+\author{\small{G. Galbato Muscio} \and \small{F. Ghimenti} \and \small{L. Gravina} \and \small{L. Graziotto}}
+\date{7 Maggio 2019}
+
+\begin{document}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.5, trim={2.8cm 8.9cm 0 9cm}, clip]{logo.png}
+	\end{figure}
+	\maketitle
+	\begin{center} 
+		\fbox{{\fontsize{12pt}{8mm}\textsc{Gruppo D1-1}}} \\
+	\end{center}
+\hrule
+\vfill
+\renewcommand{\abstractname}{Abstract}
+\begin{abstract}
+Si misura la lunghezza d'onda della luce emessa da un laser He-Ne mediante lo studio della figura di diffrazione da una fenditura lineare e da un'apertura circolare in regime di Fraunhofer. Si verifica poi la validità del principio di Babinet studiando la figura di diffrazione in regime di Fraunhofer da un capello, e si stima il diametro dello stesso.
+\end{abstract}
+\vfill
+\tableofcontents %Indice
+\newpage
+
+
+\pagebreak
+
+
+\begin{multicols}{2}
+%==================================================
+%             APPARATO STRUMENTALE
+%==================================================
+\section{Apparato strumentale}
+
+Si utilizza un laser He-Ne di lunghezza d'onda, dichiarata dal costruttore, $\lambda = \SI{632.8}{nm}$, montato su tavolo ottico\footnote{Si confronterà dunque il risultato sperimentale ottenuto in seguito con questo valore.}. 
+
+In serie al laser è posta un'iride, allo scopo di evitare l'ingresso nel laser dei fasci di ritorno, che ne perturberebbero il comportamento. Due specchi orientati a \SI{45}{\degree} portano il fascio ad incidere sulla fenditura o sull'apertura circolare o sul capello; quindi, a distanza\footnote{L'incertezza associata è pari al doppio della risoluzione del metro a nastro, in quanto si ha un errore dovuto sia al posizionamento di un capo dello strumento, sia al posizionamento dell'altro.} $L = \SI{90.0 \pm 0.2}{cm}$, è posto il fotodiodo, montato su una slitta micrometrica di portata \SI{15}{mm} e risoluzione \SI{0.010}{mm}, che può essere traslato per misurare l'intensità luminosa delle frange di diffrazione.
+
+La configurazione utilizzata è illustrata in Figura~\ref{fig:diagram}.
+
+\begin{Figure}
+	\begin{center}
+	\hbox{\hspace{-0.8cm}
+	\includegraphics[width=1.1\linewidth]{diagram.png}}
+	\captionof{figure}{Configurazione utilizzata.}
+	\label{fig:diagram}
+	\end{center}
+\end{Figure}
+
+Il segnale in uscita dal fotodiodo è misurato con il multimetro \texttt{METEX M-4650}. Le misure di intensità luminosa vengono riportate come differenza di potenziale misurata ai capi del fotodiodo, pertanto è da intendere la presenza di un fattore di proporzionalità non noto. Inoltre, si regola con un filtro attenuatore l'intensità della luce emessa dal laser in modo da restare all'interno della regione di linearità del fotodiodo, ossia al di sotto di \SI{10}{V}.
+
+\section{Misura della lunghezza d'onda}
+Si utilizzano nel seguito fenditure di larghezza $b = (\SI{150}{\micro m}, \SI{200}{\micro m}, \SI{300}{\micro m}, \SI{400}{\micro m})$ e aperture circolari di diametro $d = (\SI{100}{\micro m}, \SI{200}{\micro m}, \SI{300}{\micro m})$; si allinea l'apparato sperimentale in modo da mantenere il fascio laser ad una altezza di circa \SI{14}{cm} dal banco ottico. Servendosi della vite micrometrica della slitta su cui è posto il fotodiodo, si misura il punto $x_0$ corrispondente al massimo della figura di diffrazione, e quindi si misura la distanza dello stesso dai punti corrispondenti ai minimi di ordine $m$.
+
+Sono note le relazioni che legano ordine del minimo, angolo di osservazione e dimensione caratteristica dell'apertura
+\[
+\begin{aligned}
+\sin\theta &= m\frac{\lambda}{b} \\
+\sin\theta &= c(m)\frac{\lambda}{d}
+\end{aligned}
+\]
+dove la prima è riferita alla fenditura e la seconda all'apertura circolare; $c(m)$ è un opportuno coefficiente legato alla funzione di Bessel. Per piccoli angoli $\theta$, si può approssimare $\sin\theta \simeq \tan\theta = (x-x_0) / L$, pertanto
+\[
+\begin{aligned}
+\frac{x-x_0}{L} &= m\frac{\lambda}{b} \\
+\frac{x-x_0}{L} &= c(m)\frac{\lambda}{d}.
+\end{aligned}
+\]
+Si riportano in Tabella~\ref{tab:misuraLambda}, in Appendice, i punti sperimentali ottenuti.
+
+Una misura preliminare dell'intensità di fondo del fotodiodo fornisce il valore $I_b = \SI{12 \pm 3}{mV}$; inoltre, il valore del massimo risulta essere $I_max = \SI{9.36 \pm 0.02}{V}$, pertanto si è verificato di lavorare entro la regione di linearità del fotodiodo.
+
+A partire dai dati sperimentali per la sola fenditura, si realizza un primo fit lineare tra le variabili $(x-x_0) / L$ e $m/b$; il grafico è riportato in Figura~\ref{fig:fitFenditura}. 
+
+\begin{Figure}
+	\begin{center}
+	\includegraphics[width=1.1\linewidth]{fitFenditura.png}
+	\captionof{figure}{Fit relativo alla sola fenditura}
+	\label{fig:fitFenditura}
+	\end{center}
+\end{Figure}
+
+Si ricava un valore del coefficiente angolare, ossia della lunghezza d'onda stimata, di
+\[
+\lambda^{\text{meas}} = \SI{648 \pm 18}{nm} = \SI{6.5 \pm 0.2 e-7}{m},
+\]
+compatibile con il valore dichiarato dal costruttore. 
+
+
+\section{Ricostruzione dell'intera figura di diffrazione per una fenditura}
+
+
+\section{Verifica del principio di Babinet e misura del diametro di un capello}
+
+
+\section{Conclusioni}
+
+
+
+
+\end{multicols}
+
+
+\newpage
+\section{Appendice}
+
+
+%ESEMPIO DI FIGURA
+%\begin{Figure}
+%	\begin{center}
+%	\includegraphics[width=\linewidth]{comune.png}
+%	\captionof{figure}{Istantanea dell'oscilloscopio per l'amplificatore differenziale, misura di $A_c$}
+%	\label{fig:Ac_differenziale}
+%	\end{center}
+%\end{Figure}
+
+
+%ESEMPIO DI TABELLA
+%\begin{center}
+%\captionof{table}{Misure per la stima di $A_c$}
+%\label{tab:Ac_differenziale}
+%\begin{tabular}{c|c|c|c}
+%$f$ [\SI{}{Hz}] & $V_i$ [\SI{}{V}] & $v_o$ [\SI{}{mV}] & $A_c = v_o / V_i$ \\
+%\hline
+%      149.5 &        3.90 &         11.3 & 2.90e-03 \\
+%      222.0 &        3.90 &         11.5 & 2.95e-03 \\
+%      281.0 &        3.90 &         11.8 & 3.03e-03 \\
+%      359.0 &        3.90 &         11.8 & 3.03e-03 \\
+%      461.0 &        3.90 &         12.2 & 3.13e-03 \\
+%\hline
+%\end{tabular}
+%\end{center}
+
+
+\end{document}
