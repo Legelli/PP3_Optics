@@ -44,6 +44,7 @@
 \usepackage{hyperref}
 %\usepackage{pst-optexp} %Diagrammi ottici
 \usepackage{physics} %Ambienti utili
+\usepackage{upgreek} %Per avere lettere greche non corsive, ex. \upbeta
 
 
 \interfootnotelinepenalty=10000
@@ -205,34 +206,33 @@ compatibile, entro due deviazioni standard, con il valore dichiarato dal costrut
 
 \section{Ricostruzione dell'intera figura di diffrazione per una fenditura}\label{sec:figura_di_diffrazione}
 
-Si costruisce l'intera figura di diffrazione per una fenditura di $\SI{300}{\mu m}$. L'analisi nell'approssimazione di Fraunhofer della diffrazione da parte di una fenditura di un'onda monocromatica fornisce la seguente formula per l'intensità:
-
-$$I(x) = I_0 (\frac{\sin\frac{2\pi xa}{\lambda z}}{\frac{2\pi xa}{\lambda z}})^2 $$
-
-
-Dove $z = \SI{90.0 \pm 0.2}{cm}$ e la distanza del fotodiodo dalla fenditura, $a$ è l'apertura della fenditura e $x$ è la posizione di rivelazione perpendicolare alla direzione di propagazione della radiazione.
-Si prendono punti a intervalli regolari di \SI{100}{\mu m} l'uno dall'altro. I risultati sono riportati in tabella \ref{tab:}, mentre in figura \ref{fig:I} è riportato il grafico dei dati con sovrapposta la curva di fit usando come parametro libero l'apertura della fenditura. Il fit per $\lambda$ fornisce il valore $\SI{570 \pm 20}{nm}$, in disaccordo con il valore dichiarato dal costruttore e con il valore stimato nella sezione precedente. Si identificano due possibile cause di errore:
+Si costruisce l'intera figura di diffrazione per una fenditura di $\SI{300}{\upmu m}$. L'analisi nell'approssimazione di Fraunhofer della diffrazione da parte di una fenditura di un'onda monocromatica fornisce la seguente formula per l'intensità:
+\begin{equation}\label{eq:slit_diffraction_figure}
+I(x) = I_0\left (\frac{\sin\left(\frac{\pi xa}{\lambda z}\right)}{\frac{\pi xa}{\lambda z}}\right)^2,
+\end{equation}
+dove $z = \SI{90.0 \pm 0.2}{cm}$ e la distanza del fotodiodo dalla fenditura, $a$ è l'apertura della fenditura e $x$ è la posizione di rivelazione perpendicolare alla direzione di propagazione della radiazione.
+Si prendono punti a intervalli regolari di \SI{100}{\upmu m} l'uno dall'altro. I risultati sono riportati in tabella \ref{tab:}, mentre in figura \ref{fig:I} è riportato il grafico dei dati con sovrapposta la curva di fit usando come parametro libero l'apertura della fenditura. Il fit per $\lambda$ fornisce il valore $\SI{570 \pm 20}{nm}$, in disaccordo con il valore dichiarato dal costruttore e con il valore stimato nella sezione precedente. Si identificano due possibile cause di errore:
 \begin{itemize}
 \item L'equazione per l'intensità è ricavata supponendo che la radiazione incidente sia un'onda piana monocromatica. In realtà il fascio diffratto è gaussiano e si ipotizza che la sua convoluzione in Fraunhofer con la fenditura porti a un'allargamento della figura di diffrazione, con conseguente sottostima di $\lambda$.
-\item La dimensione della fenditura non coincide con quella dichiarata dal costruttore. Effettuiamo un fit sui dati sperimentali e troviamo $$a = \SI{237 \pm 1}{\mu m}$$, corrispondente a un errore del 21\% sul valore dichiarato.
+\item La dimensione della fenditura non coincide con quella dichiarata dal costruttore. Effettuiamo un fit sui dati sperimentali e troviamo $$a = \SI{237 \pm 1}{\upmu m},$$ corrispondente a un errore del 21\% sul valore dichiarato.
 \end{itemize}
 
 \begin{Figure}
 	\begin{center}
-	\includegraphics[width=1.1\linewidth]{figura_diffrazione.eps}
-	\captionof{figure}{Dati sperimentali con sovrapposta curva di fit avente lo spessore della fenditura come parametro e curva teorica attesa. Qui $\lambda = \SI{640}{nm}$ }
+	\includegraphics[width=\linewidth]{figura_diffrazione.eps}
+	\captionof{figure}{Dati sperimentali con sovrapposta curva di fit avente lo spessore della fenditura come parametro e curva teorica attesa. Qui $\lambda = \SI{640}{nm}$. }
 	\label{fig:I}
 	\end{center}
 \end{Figure}
 
 
 \section{Verifica del principio di Babinet e misura del diametro di un capello}
-Si sostituisce la fenditura con un capello umano, per il \emph{Principio di Babinet} la figura di diffrazione prodotta coincide con quella di una fenditura di apertura pari allo spessore $d$ del capello\footnote{Nel dire questo si è assunto che il capello abbia forma parallelepipeda, e non cilindrica.}, figura descritta nel paragrafo \ref{sec:figura_di_diffrazione}. 
+Si sostituisce la fenditura con un capello umano, per il \emph{Principio di Babinet} la figura di diffrazione teorica prodotta coincide con quella di una fenditura di apertura pari allo spessore $d$ del capello\footnote{Nel dire questo si è assunto che il capello abbia forma parallelepipeda, e non cilindrica, orientato in modo che due facce siano perpendicolari al vettore d'onda del fascio laser.}, figura descritta in (\ref{eq:slit_diffraction_figure}). 
 
-Misurando l'intensità del fascio al variare della distanza $x$ dal massimo si trovano le misure riportate in Figura \ref{fig:babinet}. Nella stessa figura è riportato il fit dell'andamento teorico dove il parametro libero è lo spessore $d$ e la lunghezza d'onda è quella dichiarata dal costruttore ovvero $\lambda = \SI{540}{nm}$.
+Misurando l'intensità del fascio al variare della distanza $x$ dal massimo si trovano le misure riportate in Figura \ref{fig:babinet} e riportate in Tabella \ref{tab:babinet}. Nella stessa figura è riportato il fit dell'andamento teorico dove il parametro libero è lo spessore $d$ e la lunghezza d'onda è quella dichiarata dal costruttore ovvero $\lambda = \SI{640}{nm}$.
 \begin{Figure}
 	\begin{center}
-	\includegraphics[width=1.1\linewidth]{babinet.eps}
+	\includegraphics[width=\linewidth]{babinet.eps}
 	\captionof{figure}{Fit sui dati relativi al capello.}
 	\label{fig:babinet}
 	\end{center}
@@ -242,8 +242,8 @@ Dal fit si ricava uno spessore del capello pari a
 \[
 	d = \SI{0.050 \pm 0.003}{mm},
 \]
-compatibile con la media mondiale.
-Il fit è stato ottenuto pesando i dati della campana centrale dieci volte in più rispetto ai punti sulle code: questa 
+compatibile con le aspettative.
+Il fit è stato ottenuto pesando i dati della campana centrale dieci volte in più rispetto ai punti sulle code: questa scelta è dovuta al fatto che l'andamento che si è ritenuto più significativo è quello centrale, essendo che i punti sono stati presi con densità troppo bassa per interpolare correttamente i minimi, inoltre non si può essere completamente sicuri che il capello fosse perpendicolare alla direzione di spostamento del fotodiodo e che il laser fosse ben allineato, dunque la figura di interferenza risulta, com'era prevedibile, asimmetrica.
 
 \section{Conclusioni}
 
