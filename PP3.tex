@@ -205,6 +205,27 @@ compatibile, entro due deviazioni standard, con il valore dichiarato dal costrut
 
 \section{Ricostruzione dell'intera figura di diffrazione per una fenditura}\label{sec:figura_di_diffrazione}
 
+Si costruisce l'intera figura di diffrazione per una fenditura di $\SI{300}{\mu m}$. L'analisi nell'approssimazione di Fraunhofer della diffrazione da parte di una fenditura di un'onda monocromatica fornisce la seguente formula per l'intensità:
+
+$$I(x) = I_0 (\frac{\sin\frac{2\pi xa}{\lambda z}}{\frac{2\pi xa}{\lambda z}})^2 $$
+
+
+Dove $z = \SI{90.0 \pm 0.2}{cm}$ e la distanza del fotodiodo dalla fenditura, $a$ è l'apertura della fenditura e $x$ è la posizione di rivelazione perpendicolare alla direzione di propagazione della radiazione.
+Si prendono punti a intervalli regolari di \SI{100}{\mu m} l'uno dall'altro. I risultati sono riportati in tabella \ref{tab:}, mentre in figura \ref{fig} è riportato il grafico dei dati con sovrapposta la curva di fit usando come parametro libero l'apertura della fenditura. Il fit per $\lambda$ fornisce il valore $\SI{570 \pm 20}{nm}$, in disaccordo con il valore dichiarato dal costruttore e con il valore stimato nella sezione precedente. Si identificano due possibile cause di errore:
+\begin{itemize}
+\item L'equazione per l'intensità è ricavata supponendo che la radiazione incidente sia un'onda piana monocromatica. In realtà il fascio diffratto è gaussiano e si ipotizza che la sua convoluzione in Fraunhofer con la fenditura porti a un'allargamento della figura di diffrazione, con conseguente sottostima di $\lambda$.
+\item La dimensione della fenditura non coincide con quella dichiarata dal costruttore. Effettuiamo un fit sui dati sperimentali e troviamo $$a = \SI{237 \pm 1}{\mu m}$$, corrispondente a un errore del 21\% sul valore dichiarato.
+\end{itemize}
+
+\begin{Figure}
+	\begin{center}
+	\hbox{\hspace{-0.8cm}
+	\includegraphics[width=1.1\linewidth]{fitFenditura.png}}
+	\captionof{figure}{Dati sperimentali con sovrapposta curva di fit avente lo spessore della fenditura come parametro e curva teorica attesa. Qui $\lambda = \SI{640}{nm}$ }
+	\label{fig:I}
+	\end{center}
+\end{Figure}
+
 
 \section{Verifica del principio di Babinet e misura del diametro di un capello}
 Si sostituisce la fenditura con un capello umano, per il \emph{Principio di Babinet} la figura di diffrazione prodotta coincide con quella di una fenditura di apertura pari allo spessore $d$ del capello\footnote{Nel dire questo si è assunto che il capello abbia forma parallelepipeda, e non cilindrica.}, figura descritta nel paragrafo \ref{sec:figura_di_diffrazione}. 
