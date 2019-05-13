@@ -160,7 +160,7 @@ dove la prima è riferita alla fenditura e la seconda all'apertura circolare; $c
 \]
 Si riportano in Tabella~\ref{tab:misuraLambda}, in Appendice, i punti sperimentali ottenuti.
 
-Una misura preliminare dell'intensità di fondo del fotodiodo fornisce il valore $I_b = \SI{12 \pm 3}{mV}$; inoltre, il valore del massimo risulta essere $I_max = \SI{9.36 \pm 0.02}{V}$, pertanto si è verificato di lavorare entro la regione di linearità del fotodiodo.
+Una misura preliminare dell'intensità di fondo del fotodiodo fornisce il valore $I_b = \SI{12 \pm 3}{mV}$; inoltre, il valore del massimo risulta essere $I_{max} = \SI{9.36 \pm 0.02}{V}$, pertanto si è verificato di lavorare entro la regione di linearità del fotodiodo.
 
 A partire dai dati sperimentali per la sola fenditura, si realizza un primo fit lineare tra le variabili $(x-x_0) / L$ e $m/b$; il grafico è riportato in Figura~\ref{fig:fitFenditura}. 
 
@@ -177,6 +177,30 @@ Si ricava un valore del coefficiente angolare, ossia della lunghezza d'onda stim
 \lambda^{\text{meas}} = \SI{648 \pm 18}{nm} = \SI{6.5 \pm 0.2 e-7}{m},
 \]
 compatibile con il valore dichiarato dal costruttore. 
+
+Si ripete lo studio sui dati completi (fenditura ed apertura circolare). Il grafico, riportato in Figura \ref{fig:slit-circ}, è riportato in funzione della variabile indipendente $c(m)/b$, in modo da includere i fattori moltiplicativi dati dai coefficienti di Bessel. 
+\begin{Figure}
+	\begin{center}
+	\includegraphics[width=1.1\linewidth]{slit-circ}
+	\captionof{figure}{Fit sui dati relativi alla fenditura ed all'apertura circolare.}
+	\label{fig:slit-circ}
+	\end{center}
+\end{Figure}
+Il fit lineare sulle variabili  $(x-x_0)/L$ e $c(m)/b$, è stato eseguito scartando dai dati riferiti all'apertura circolare quelli di ordine $m=2$ (riportati in rosso nel grafico) in quanto estremamente inattendibili. Si ritiene che la stima di tali minimi sia stata viziata da una luminosità di fondo comparabile con il segnale d'interesse.
+
+Si ricava un valore del coefficiente angolare, ossia della lunghezza d’onda stimata, di
+\[
+\lambda^{\text{meas}} = \SI{697 \pm 28}{nm} = \SI{7.0 \pm 0.3 e-7}{m},
+\]
+compatibile, entro due deviazioni standard, con il valore dichiarato dal costruttore e con quello stimato in precedenza.
+
+
+
+
+
+
+
+
 
 
 \section{Ricostruzione dell'intera figura di diffrazione per una fenditura}
@@ -196,6 +220,57 @@ compatibile con il valore dichiarato dal costruttore.
 \newpage
 \section{Appendice}
 
+
+\begin{minipage}{.5\linewidth}
+\begin{center}
+\captionof{table}{Misure di diffrazione attraverso la fenditura.}
+\label{tab:misuraLambda}
+\begin{tabular}{c|c|c|c}
+$m$ & $b$ [\SI{}{mm}] & $x_0$ [\SI{}{mm}] & $x$ [\SI{}{mm}]\\
+ & & $\pm 0.1$ & $\pm 0.1$\\
+\hline
+  1 & 0.2 & 4.3 &  2.6 \\
+ -1 & 0.2 & 4.3 & -2.6 \\
+  1 & 0.3 & 8.6 & -2.0 \\
+ -1 & 0.3 & 8.6 &  2.0 \\
+  2 & 0.3 & 8.6 & -3.9 \\
+ -2 & 0.3 & 8.6 &  3.8 \\
+  1 & 0.4 & 8.5 &  1.6 \\
+  2 & 0.4 & 8.5 &  3.0 \\
+ -1 & 0.4 & 8.5 & -1.6 \\
+ -2 & 0.4 & 8.5 & -2.9 \\
+  1 & 0.1 & 8.6 &  3.9 \\
+ -1 & 0.1 & 8.6 & -4.0 \\
+ -2 & 0.1 & 8.6 & -7.8 \\
+\hline
+\end{tabular}
+\end{center}
+\end{minipage}
+\quad
+\begin{minipage}{.5\linewidth}
+\begin{center}
+\captionof{table}{Misure di diffrazione attraverso l'apertura circolare.}
+\label{tab:misuraLambda}
+\begin{tabular}{cc|c|c|c}
+&$m$ & $b$ [\SI{}{mm}] & $x_0$ [\SI{}{mm}] & $x$ [\SI{}{mm}]\\
+& & & $\pm 0.1$ & $\pm 0.1$\\
+\hline
+ & 1 & 0.3 & 9.8 &  2.5 \\
+ & 4 & 0.3 & 9.8 &  4.3 \\
+ &-1 & 0.3 & 9.8 & -2.3 \\
+ &-4 & 0.3 & 9.8 & -4.2 \\
+ &-1 & 0.1 & 9.6 & -8.2 \\
+ & 1 & 0.2 & 9.6 &  3.0 \\
+ &-1 & 0.2 & 9.6 & -3.3 \\
+ &-4 & 0.2 & 9.6 & -6.4 \\
+\hline\\
+\\
+\\
+\\
+\\
+\end{tabular}
+\end{center}
+\end{minipage}
 
 %ESEMPIO DI FIGURA
 %\begin{Figure}
