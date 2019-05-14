@@ -21,6 +21,7 @@
 \usepackage{threeparttable} %tabella con note a piè di tabella
 \usepackage{caption}	%descrizione per figure
 \usepackage{dblfnote}
+\usepackage{supertabular}
 \captionsetup{tableposition=top,figureposition=bottom,font=small} %setup descrizione
 \usepackage{float}
 \usepackage{esvect} %vettori
@@ -193,7 +194,9 @@ Si ricava un valore del coefficiente angolare, ossia della lunghezza d’onda st
 \[
 \lambda^{\text{meas}} = \SI{697 \pm 28}{nm} = \SI{7.0 \pm 0.3 e-7}{m},
 \]
-compatibile, entro due deviazioni standard, con il valore dichiarato dal costruttore e con quello stimato in precedenza.
+compatibile, entro due deviazioni standard, con il valore dichiarato dal costruttore e con quello stimato in precedenza. Si propone dunque come miglior stima della lunghezza d'onda del laser la media pesata delle due misure\[
+\bar \lambda = \SI{678 \pm 33}{nm} = \SI{6.8 \pm 0.3 e-7}{m}.
+\]
 
 
 
@@ -211,7 +214,7 @@ Si costruisce l'intera figura di diffrazione per una fenditura di $\SI{300}{\upm
 I(x) = I_0\left (\frac{\sin\left(\frac{\pi xa}{\lambda z}\right)}{\frac{\pi xa}{\lambda z}}\right)^2,
 \end{equation}
 dove $z = \SI{90.0 \pm 0.2}{cm}$ e la distanza del fotodiodo dalla fenditura, $a$ è l'apertura della fenditura e $x$ è la posizione di rivelazione perpendicolare alla direzione di propagazione della radiazione.
-Si prendono punti a intervalli regolari di \SI{100}{\upmu m} l'uno dall'altro. I risultati sono riportati in tabella \ref{tab:}, mentre in figura \ref{fig:I} è riportato il grafico dei dati con sovrapposta la curva di fit usando come parametro libero l'apertura della fenditura. Il fit per $\lambda$ fornisce il valore $\SI{570 \pm 20}{nm}$, in disaccordo con il valore dichiarato dal costruttore e con il valore stimato nella sezione precedente. Si identificano due possibile cause di errore:
+Si prendono punti a intervalli regolari di \SI{100}{\upmu m} l'uno dall'altro. I risultati sono riportati in Tabella \ref{tab:}, mentre in Figura \ref{fig:I} è riportato il grafico dei dati con sovrapposta la curva di fit usando come parametro libero l'apertura della fenditura. Il fit per $\lambda$ fornisce il valore $\SI{570 \pm 20}{nm}$, in disaccordo con il valore dichiarato dal costruttore e con il valore stimato nella sezione precedente. Si identificano due possibile cause di errore:
 \begin{itemize}
 \item L'equazione per l'intensità è ricavata supponendo che la radiazione incidente sia un'onda piana monocromatica. In realtà il fascio diffratto è gaussiano e si ipotizza che la sua convoluzione in Fraunhofer con la fenditura porti a un'allargamento della figura di diffrazione, con conseguente sottostima di $\lambda$.
 \item La dimensione della fenditura non coincide con quella dichiarata dal costruttore. Effettuiamo un fit sui dati sperimentali e troviamo $$a = \SI{237 \pm 1}{\upmu m},$$ corrispondente a un errore del 21\% sul valore dichiarato.
@@ -307,6 +310,61 @@ $m$ & $b$ [\SI{}{mm}] & $x_0$ [\SI{}{mm}] & $x$ [\SI{}{mm}]\\
 \end{tabular}
 \end{center}
 \end{minipage}
+
+
+
+
+
+\begin{center}
+\captionof{table}{Misure di diffrazione attraverso la fenditura.}
+\label{tab:misuraLambda}
+\begin{tabular}{c|c|c}
+$x$ [\SI{}{cm}] & $V$ [\SI{}{V}] & $\sigma_V$ [\SI{}{V}]\\
+$\pm 0.01$ & & \\
+\hline
+ 15.00 & 0.011 & 0.001 \\
+ 14.50 & 0.031 & 0.001 \\
+ 14.00 & 0.057 & 0.001 \\
+ 13.50 & 0.098 & 0.001 \\
+ 13.00 & 0.058 & 0.001 \\
+ 12.50 & 0.228 & 0.001 \\
+ 12.00 & 0.274 & 0.001 \\
+ 11.50 & 0.308 & 0.002 \\
+ 11.00 & 2.040 & 0.010 \\
+ 10.50 & 4.03 & 0.03 \\
+  10.40 & 5.2 & 0.1 \\
+ 10.30 & 6.45 & 0.03 \\
+ 10.20 & 7.7 & 0.1 \\
+  10.10 & 9.0 & 0.1 \\
+ 10.00 & 9.7 & 0.1 \\
+   9.90 & 9.96 & 0.01 \\
+  9.80 & 9.60 & 0.05 \\
+  9.70 & 8.7 & 0.1 \\
+  9.60 & 7.50 & 0.05 \\
+  9.40 & 5.130 & 0.001 \\
+  9.50 & 6.130& 0.05 \\
+  9.00 & 3.150& 0.05 \\
+  8.50 & 0.420& 0.01 \\
+  8.00 & 0.352 & 0.002 \\
+  7.50 & 0.219 & 0.001 \\
+  7.00 & 0.155 & 0.001 \\
+  6.50 & 0.110 & 0.001 \\
+  6.00 & 0.062 & 0.001 \\
+  5.50 & 0.030 & 0.001 \\
+  5.00 & 0.011 & 0.001 \\
+  4.50 & 0.006 & 0.001 \\
+  4.00 & 0.008 & 0.001 \\
+\hline
+\end{tabular}
+\end{center}
+
+
+
+
+
+
+
+
 
 %ESEMPIO DI FIGURA
 %\begin{Figure}
