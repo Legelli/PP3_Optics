@@ -157,18 +157,18 @@ Sono note le relazioni che legano ordine del minimo, angolo di osservazione e di
 \sin\theta &= c(m)\frac{\lambda}{d}
 \end{aligned}
 \]
-dove la prima è riferita alla fenditura e la seconda all'apertura circolare; $c(m)$ è un opportuno coefficiente legato alla funzione di Bessel. Per piccoli angoli $\theta$, si può approssimare $\sin\theta \simeq \tan\theta = (x-x_0) / L$, pertanto
+dove la prima è riferita alla fenditura e la seconda all'apertura circolare; $c(m)$ è un opportuno coefficiente legato alla funzione di Bessel. Per piccoli angoli $\theta$, si può approssimare $\sin\theta \simeq \tan\theta = (x'-x_0) / L = x/L$\footnote{Da qui in poi ci si riferirà ad $x'$ per indicare la posizione assoluta rispetto allo 0 della guida micrometrica, e con $x$ la coordinata relativa alla posizione di massima intensità.}, pertanto
 \[
 \begin{aligned}
-\frac{x-x_0}{L} &= m\frac{\lambda}{b} \\
-\frac{x-x_0}{L} &= c(m)\frac{\lambda}{d}.
+\frac{x'-x_0}{L} &= m\frac{\lambda}{b} \\
+\frac{x'-x_0}{L} &= c(m)\frac{\lambda}{d}.
 \end{aligned}
 \]
 Si riportano nelle Tabelle~\ref{tab:misuraLambda1} e~\ref{tab:misuraLambda2}, in Appendice, i punti sperimentali ottenuti.
 
 Una misura preliminare dell'intensità di fondo del fotodiodo fornisce il valore ${I_b = \SI{12 \pm 3}{mV}}$; inoltre, il valore del massimo risulta essere $I_{max} = \SI{9.36 \pm 0.02}{V}$, pertanto si è verificato di lavorare entro la regione di linearità del fotodiodo.
 
-A partire dai dati sperimentali per la sola fenditura, si realizza un primo fit lineare tra le variabili\footnote{In realtà si utilizzano i valori assoluti delle stesse, in quanto i minimi sono teoricamente simmetrici rispetto a $x_0$.} $(x-x_0) / L$ e $m/b$; il grafico è riportato in Figura~\ref{fig:fitFenditura}. 
+A partire dai dati sperimentali per la sola fenditura, si realizza un primo fit lineare tra le variabili\footnote{In realtà si utilizzano i valori assoluti delle stesse, in quanto i minimi sono teoricamente simmetrici rispetto a $x_0$.} $(x'-x_0) / L$ e $m/b$; il grafico è riportato in Figura~\ref{fig:fitFenditura}. 
 
 \begin{Figure}
 	\begin{center}
@@ -192,7 +192,7 @@ Si ripete lo studio sui dati completi (fenditura ed apertura circolare). Il graf
 	\label{fig:slit-circ}
 	\end{center}
 \end{Figure}
-Il fit lineare sulle variabili $(x-x_0)/L$ e $m \times c(m)/b$ è stato eseguito scartando dai dati riferiti all'apertura circolare quelli riguardanti il minimo di ordine $m=2$ (riportati in rosso nel grafico) in quanto inattendibili rispetto all'andamento degli altri punti. Si ritiene che la stima di tali minimi sia stata viziata da una luminosità di fondo comparabile con il segnale d'interesse; inoltre, si ritiene che, poiché il fotodiodo compie una misura integrata sull'intera area della propria regione sensibile di diametro $\approx \SI{200}{\micro m}$ e non invece una misura puntuale, l'individuazione del minimo osservando solo l'andamento della tensione ai suoi capi possa essere stata inaccurata. 
+Il fit lineare sulle variabili $(x'-x_0)/L$ e $m \times c(m)/b$ è stato eseguito scartando dai dati riferiti all'apertura circolare quelli riguardanti il minimo di ordine $m=2$ (riportati in rosso nel grafico) in quanto inattendibili rispetto all'andamento degli altri punti. Si ritiene che la stima di tali minimi sia stata viziata da una luminosità di fondo comparabile con il segnale d'interesse; inoltre, si ritiene che, poiché il fotodiodo compie una misura integrata sull'intera area della propria regione sensibile di diametro $\approx \SI{200}{\micro m}$ e non invece una misura puntuale, l'individuazione del minimo osservando solo l'andamento della tensione ai suoi capi possa essere stata inaccurata. 
 
 Si ricava un valore del coefficiente angolare, ossia della lunghezza d'onda stimata, di
 \[
@@ -210,7 +210,7 @@ Si ricostruisce l'intera figura di diffrazione per una fenditura di $\SI{300}{\m
 \begin{equation}\label{eq:slit_diffraction_figure}
 I(x) = I_0\left (\frac{\sin\left(\frac{\pi xa}{\lambda z}\right)}{\frac{\pi xa}{\lambda z}}\right)^2,
 \end{equation}
-dove $z = \SI{90.0 \pm 0.2}{cm}$ è la distanza del fotodiodo dalla fenditura, $a$ è l'apertura della fenditura e $x$ è la posizione di rivelazione perpendicolare alla direzione di propagazione della radiazione.
+dove $z = \SI{90.0 \pm 0.2}{cm}$ è la distanza del fotodiodo dalla fenditura, $a$ è l'apertura della fenditura e $x$ è la coordinata del fotorilevatore rispetto al punto di massima intensità.
 Si prendono punti a intervalli regolari di \SI{100}{\micro m} l'uno dall'altro. Le misure sono riportate in Tabella \ref{tab:interaFenditura} in Appendice, mentre in Figura \ref{fig:I} è riportato il grafico dei dati con sovrapposta la curva di fit usando come parametro libero l'apertura della fenditura. Il fit per la lunghezza d'onda fornisce il valore
 \[
  \lambda = \SI{570 \pm 20}{nm} = \SI{5.7 \pm 0.2 e-7}{m},
@@ -233,7 +233,7 @@ non compatibile con il valore dichiarato dal costruttore e con il valore stimato
 \section{Verifica del principio di Babinet e misura del diametro di un capello}
 Si sostituisce la fenditura con un capello umano, per il \emph{Principio di Babinet} la figura di diffrazione teorica prodotta coincide con quella di una fenditura di apertura pari allo spessore $d$ del capello\footnote{Nel dire questo si è assunto che il capello abbia forma parallelepipeda, e non cilindrica, orientato in modo che due facce siano perpendicolari al vettore d'onda del fascio laser.}, come descritto in (\ref{eq:slit_diffraction_figure}). 
 
-Misurando l'intensità del fascio al variare della distanza $x$ dal massimo si trovano le misure riportate in Figura~\ref{fig:babinet} e in Tabella~\ref{tab:babinet}, in Appendice. Nella stessa figura è riportato il fit dell'andamento teorico dove il parametro libero è lo spessore $d$ e la lunghezza d'onda è quella dichiarata dal costruttore, ovvero $\lambda = \SI{632.8}{nm}$.
+Misurando l'intensità del fascio al variare della posizione assoluta sulla slitta $x'$ si trovano le misure riportate\footnote{Le misure sono traslate in modo che il massimo coincida con $x=0$.} in Figura~\ref{fig:babinet} e in Tabella~\ref{tab:babinet}, in Appendice. Nella stessa figura è riportato il fit dell'andamento teorico dove il parametro libero è lo spessore $d$ e la lunghezza d'onda è quella dichiarata dal costruttore, ovvero $\lambda = \SI{632.8}{nm}$.
 \begin{Figure}
 	\begin{center}
 	\includegraphics[width=\linewidth]{babinet.eps}
@@ -274,7 +274,7 @@ Infine, si osserva che il \emph{Principio di Babinet} è soddisfatto utilizzando
 \captionof{table}{Misure di diffrazione attraverso la fenditura.}
 \label{tab:misuraLambda1}
 \begin{tabular}{c|c|c|c}
-$m$ & $b$ [\SI{}{mm}] & $x_0$ [\SI{}{mm}] & $x-x_0$ [\SI{}{mm}]\\
+$m$ & $b$ [\SI{}{mm}] & $x_0$ [\SI{}{mm}] & $x'-x_0$ [\SI{}{mm}]\\
  & & $\pm 0.1$ & $\pm 0.2$\\
 \hline
   1 & 0.2 & 4.3 &  2.6 \\
@@ -301,7 +301,7 @@ $m$ & $b$ [\SI{}{mm}] & $x_0$ [\SI{}{mm}] & $x-x_0$ [\SI{}{mm}]\\
 \captionof{table}{Misure di diffrazione attraverso l'apertura circolare.}
 \label{tab:misuraLambda2}
 \begin{tabular}{c|c|c|c}
-$m \times c(m)$ & $b$ [\SI{}{mm}] & $x_0$ [\SI{}{mm}] & $x-x_0$ [\SI{}{mm}]\\
+$m \times c(m)$ & $b$ [\SI{}{mm}] & $x_0$ [\SI{}{mm}] & $x'-x_0$ [\SI{}{mm}]\\
  & & $\pm 0.1$ & $\pm 0.2$\\
 \hline
   $1 \times 1.22$ & 0.3 & 9.8 &  2.5 \\
@@ -324,7 +324,7 @@ $m \times c(m)$ & $b$ [\SI{}{mm}] & $x_0$ [\SI{}{mm}] & $x-x_0$ [\SI{}{mm}]\\
 \begin{minipage}{0.33\linewidth}
 \begin{center}
 \begin{tabular}{c|c|c}
-$x$ [\SI{}{mm}] & $V$ [\SI{}{V}] & $\sigma_V$ [\SI{}{V}] \\
+$x'$ [\SI{}{mm}] & $V$ [\SI{}{V}] & $\sigma_V$ [\SI{}{V}] \\
  $\pm 0.1$ & & \\
 \hline
  0.1 & 0.028 & 0.001 \\
@@ -357,7 +357,7 @@ $x$ [\SI{}{mm}] & $V$ [\SI{}{V}] & $\sigma_V$ [\SI{}{V}] \\
 \begin{minipage}{0.33\linewidth}
 \begin{center}
 \begin{tabular}{c|c|c}
-$x$ [\SI{}{mm}] & $V$ [\SI{}{V}] & $\sigma_V$ [\SI{}{V}] \\
+$x'$ [\SI{}{mm}] & $V$ [\SI{}{V}] & $\sigma_V$ [\SI{}{V}] \\
  $\pm 0.1$ & & \\
 \hline
   2.4 & 0.031 & 0.001 \\
@@ -390,7 +390,7 @@ $x$ [\SI{}{mm}] & $V$ [\SI{}{V}] & $\sigma_V$ [\SI{}{V}] \\
 \begin{minipage}{0.33\linewidth}
 \begin{center}
 \begin{tabular}{c|c|c}
-$x$ [\SI{}{mm}] & $V$ [\SI{}{V}] & $\sigma_V$ [\SI{}{V}] \\
+$x'$ [\SI{}{mm}] & $V$ [\SI{}{V}] & $\sigma_V$ [\SI{}{V}] \\
  $\pm 0.1$ & & \\
 \hline
   4.7 & 0.035 & 0.001 \\
@@ -425,7 +425,7 @@ $x$ [\SI{}{mm}] & $V$ [\SI{}{V}] & $\sigma_V$ [\SI{}{V}] \\
 \vspace{0cm}
 \begin{center}
 \begin{tabular}{c|c|c}
-$x$ [\SI{}{mm}] & $V$ [\SI{}{V}] & $\sigma_V$ [\SI{}{V}] \\
+$x'$ [\SI{}{mm}] & $V$ [\SI{}{V}] & $\sigma_V$ [\SI{}{V}] \\
  $\pm 0.1$ & & \\
 \hline
   7.0 & 0.034 & 0.001 \\
@@ -477,7 +477,7 @@ $x$ [\SI{}{mm}] & $V$ [\SI{}{V}] & $\sigma_V$ [\SI{}{V}] \\
 \vspace{0cm}
 \begin{center}
 \begin{tabular}{c|c|c}
-$x$ [\SI{}{mm}] & $V$ [\SI{}{V}] & $\sigma_V$ [\SI{}{V}] \\
+$x'$ [\SI{}{mm}] & $V$ [\SI{}{V}] & $\sigma_V$ [\SI{}{V}] \\
  $\pm 0.1$ & & \\
 \hline
  11.1 & 2.70 & 0.02 \\
@@ -530,7 +530,7 @@ $x$ [\SI{}{mm}] & $V$ [\SI{}{V}] & $\sigma_V$ [\SI{}{V}] \\
 \captionof{table}{Misure di diffrazione per un capello.}
 \label{tab:babinet}
 \begin{tabular}{c|c|c}
-$x$ [\SI{}{mm}] & $V$ [\SI{}{V}] & $\sigma_V$ [\SI{}{V}]\\
+$x'$ [\SI{}{mm}] & $V$ [\SI{}{V}] & $\sigma_V$ [\SI{}{V}]\\
 $\pm 0.1$ & & \\
 \hline
  15.0 & 0.011 & 0.001 \\
